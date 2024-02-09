@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { ubuntu,montserrat } from "@/components/fonts/fonts";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import Navbar from "@/components/main/Navbar";
+import Hero from "@/components/main/Hero";
+import Cards from "@/components/main/Cards";
+import Providers from "./providers";
+import Footer from "@/components/main/Footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +19,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${montserrat.className} bg-[#F9F6F6] overflow-y-scroll overflow-x-hidden`}>
+       <Providers>
+        <Navbar/>
+        <Hero/>
+        <Cards/>
+         {children}
+         <Footer/>
+       </Providers>
+      </body>
     </html>
   );
 }
